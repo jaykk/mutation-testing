@@ -33,6 +33,19 @@ def test_add():
 - ✅ Improves overall test suite quality
 - ✅ Provides confidence in your tests' ability to catch real bugs
 
+## How It Works: AST Parsing
+
+This setup uses **Abstract Syntax Tree (AST) parsing** to identify and mutate code. Instead of using simple text-based find-and-replace, AST parsing:
+
+- **Understands code structure** - Parses Python code into a tree representation
+- **Precisely targets code elements** - Identifies specific operators, functions, and statements
+- **Maintains valid syntax** - Ensures all mutations produce syntactically correct Python code
+- **Enables smart matching** - Can locate code pieces based on their semantic meaning, not just text patterns
+
+For example, when mutating `a + b`, the AST parser recognizes this as a `BinOp` (binary operation) node with the `Add` operator, allowing it to intelligently replace it with `Sub`, `Mult`, etc., while understanding the context.
+
+*More technical details on the AST parsing implementation will be provided in future updates.*
+
 ## Popular Python Mutation Testing Tools
 
 ### 1. mutmut
